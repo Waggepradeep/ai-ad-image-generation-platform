@@ -231,7 +231,7 @@ def auto_check_images(status_container):
     while attempt < max_attempts and st.session_state.pending_urls:
         time.sleep(2)
         if check_generated_images():
-            status_container.success("? Image ready!")
+            status_container.success("✨ Image ready!")
             return True
         attempt += 1
     return False

@@ -1,4 +1,4 @@
-﻿import streamlit as st
+import streamlit as st
 
 
 def render(tab, deps):
@@ -34,7 +34,7 @@ def render(tab, deps):
                 st.markdown("**Enhanced Prompt:**")
                 st.markdown(f"*{st.session_state.enhanced_prompt}*")
 
-            if st.button("? Enhance Prompt", key="enhance_button"):
+            if st.button("✨ Enhance Prompt", key="enhance_button"):
                 if not prompt:
                     st.warning("Please enter a prompt to enhance.")
                 else:

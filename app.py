@@ -28,7 +28,7 @@ from utils import extract_result_urls
 
 # Configure Streamlit page
 st.set_page_config(
-    page_title="AdSnap Studio",
+    page_title="AdForge Studio",
     page_icon="🎨",
     layout="wide",
     initial_sidebar_state="collapsed",
@@ -275,7 +275,7 @@ def render_generated_gallery(section_key):
 
 
 def main():
-    st.title("AdSnap Studio")
+    st.title("AdForge Studio")
     initialize_session_state()
 
     with st.sidebar:

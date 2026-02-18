@@ -1,6 +1,6 @@
-﻿# AdSnap Studio
+﻿# AdForge Studio
 
-AdSnap Studio is a Streamlit app for generating and editing ad images using Bria AI APIs.
+AdForge Studio is a Streamlit app for generating and editing ad images using Bria AI APIs.
 
 ## What It Does
 

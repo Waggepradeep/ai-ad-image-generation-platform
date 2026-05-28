@@ -1,6 +1,6 @@
 import os
 import time
-from datetime import UTC, datetime
+from datetime import datetime, timezone
 from importlib.metadata import PackageNotFoundError, version
 from types import SimpleNamespace
 
@@ -104,7 +104,7 @@ def debug_log(event, **fields):
     if not st.session_state.get("debug_mode"):
         return
     payload = {
-        "ts": datetime.now(UTC).isoformat(timespec="seconds").replace("+00:00", "Z"),
+        "ts": datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z"),
         "event": event,
         **fields,
     }
@@ -115,7 +115,7 @@ def set_generation_status(state, message):
     st.session_state.generation_status = {
         "state": state,
         "message": message,
-        "updated_at": datetime.now(UTC).isoformat(timespec="seconds").replace("+00:00", "Z"),
+        "updated_at": datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z"),
     }
 
 
@@ -177,7 +177,7 @@ def sync_active_image_state():
     st.session_state.active_image = image_url
     st.session_state.active_source = source
 
-    feature_key = SOURCE_TO_FEATURE.get(source)
+    feature_key = SOURCE_TO_FEATURE.get(source) if isinstance(source, str) else None
     if feature_key:
         st.session_state.feature_images[feature_key] = image_url
     set_generation_status("Ready", f"Latest image source: {source or 'Unknown'}")
